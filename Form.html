@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Event Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+
+        label {
+            font-size: 18px;
+        }
+
+        input {
+            padding: 8px;
+            margin: 8px 0;
+            width: 250px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        table {
+            width: 60%;
+            border-collapse: collapse;
+            margin-top: 25px;
+        }
+
+        th, td {
+            border: 1px solid #333;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .blue-row {
+            background-color: #d9ecff; /* light blue */
+        }
+
+        .yellow-row {
+            background-color: #fff8c6; /* light yellow */
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Event Management System</h2>
+
+    <label>Participant Name:</label><br>
+    <input type="text" id="name"><br>
+
+    <label>Participant Age:</label><br>
+    <input type="number" id="age"><br>
+
+    <button onclick="submitData()">Submit</button>
+
+    <table id="participantTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <script>
+        function submitData() {
+            let name = document.getElementById("name").value.trim();
+            let age = document.getElementById("age").value.trim();
+            
+            let nameRegex = /^[A-Za-z]+$/;
+
+            if (!name || !nameRegex.test(name)) {
+                alert("Please enter a valid name (letters only, no spaces).");
+                return;
+            }
+
+            age = Number(age);
+            if (isNaN(age) || age < 18 || age > 100) {
+                alert("Age must be a number between 18 and 100.");
+                return;
+            }
+
+            let tableBody = document.getElementById("participantTable").querySelector("tbody");
+            let newRow = document.createElement("tr");
+
+            if (age < 30) {
+                newRow.classList.add("blue-row");
+            } else {
+                newRow.classList.add("yellow-row");
+            }
+
+            newRow.innerHTML = `
+                <td>${name}</td>
+                <td>${age}</td>
+            `;
+
+            tableBody.appendChild(newRow);
+
+            document.getElementById("name").value = "";
+            document.getElementById("age").value = "";
+        }
+    </script>
+
+</body>
+</html>
