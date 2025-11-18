@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="University Admission Form">
+    <meta name="author" content="Your Name">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Admission Form</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 30px;
+        }
+
+        form {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            width: 600px;
+            margin: auto;
+            box-shadow: 0px 0px 10px #ccc;
+        }
+
+        fieldset {
+            margin-bottom: 20px;
+            border: 2px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        legend {
+            font-weight: bold;
+            padding: 0 10px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-size: 15px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            margin-top: 5px;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #999;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            color: white;
+            background: #0275d8;
+            cursor: pointer;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: #025aa5;
+        }
+
+        button[type="reset"] {
+            background: #d9534f;
+        }
+
+        button[type="reset"]:hover {
+            background: #c9302c;
+        }
+    </style>
+</head>
+
+<body>
+
+<form>
+
+    <h2 style="text-align: center;">University Admission Form</h2>
+
+    <fieldset>
+        <legend>Personal Information</legend>
+
+        <label>Full Name:</label>
+        <input type="text" name="fullname" required maxlength="50">
+
+        <label>Email Address:</label>
+        <input type="email" name="email" required>
+
+        <label>Date of Birth:</label>
+        <input type="date" name="dob" required>
+
+        <label>Gender:</label>
+        <input type="radio" name="gender" value="Male" required> Male  
+        <input type="radio" name="gender" value="Female" required> Female  
+        <input type="radio" name="gender" value="Other" required> Other
+
+        <label>Interests (Select all that apply):</label>
+        <input type="checkbox" name="interests" value="Sports"> Sports  
+        <input type="checkbox" name="interests" value="Music"> Music  
+        <input type="checkbox" name="interests" value="Programming"> Programming  
+        <input type="checkbox" name="interests" value="Art"> Art
+    </fieldset>
+
+    <fieldset>
+        <legend>Academic Information</legend>
+
+        <label>Highest Qualification:</label>
+        <input type="text" name="qualification" required maxlength="40">
+
+        <label>Preferred Department:</label>
+        <select name="department" required>
+            <option value="">-- Select a Department --</option>
+            <option value="Computer Science">Computer Science</option>
+            <option value="Electrical Engineering">Electrical Engineering</option>
+            <option value="Business Administration">Business Administration</option>
+            <option value="Civil Engineering">Civil Engineering</option>
+            <option value="Biotechnology">Biotechnology</option>
+        </select>
+
+        <label>Year of Passing:</label>
+        <input type="date" name="yearofpassing" required>
+
+        <label>Upload Your Transcript:</label>
+        <input type="file" name="transcript" required>
+
+        <label>Upload Your Photo:</label>
+        <input type="file" name="photo" required>
+    </fieldset>
+
+    <!-- BUTTONS -->
+    <div class="button-container">
+        <button type="submit">Submit Form</button>
+        <button type="reset">Reset</button>
+    </div>
+
+</form>
+
+</body>
+</html>
